@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Settings";
+}
+@model List<List<String>>
+
+<h2>@ViewData["Title"]</h2>
+
+
+<div class="row">
+    <div class="card" style="width: 40rem;">
+        <div class="card-header">
+            Edit Chart Types
+        </div>
+        <br />
+        <ul class="list-group list-group-flush" style="width: 40rem" ;>
+            @foreach (var m in Model[1])
+            {
+            <li class="list-group-item">
+                @m
+               
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Chart Type
+                        </button>
+                        <div class="dropdown-menu">
+                            @foreach (var l in Model[0])
+                            {
+                                <a class="dropdown-item" href="@Url.Action("ChartType", "Home",new { chart = m, type = l })">@l</a>
+                                <div class="dropdown-divider"></div>
+                           
+                            }
+                        </div>
+                    </div>
+               
+            </li>
+
+            }
+        </ul>
+
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        $("#dropdown").change(function (event) {
+            alert("You have Selected  :: " + $(this).val());
+        });
+    });
+
+</script>

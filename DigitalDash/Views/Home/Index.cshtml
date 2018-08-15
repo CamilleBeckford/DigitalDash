@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Chart>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+
+    <div class="card-deck">
+        @foreach (var l in Model)
+        {
+        <div class="card bg-light mb-3 border-secondary" style="max-width: 50rem;background-color: white;">
+            <div class="card-body">
+                <div id=@l.title>
+                    <h3 class="card-title">@l.title</h3>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+                    <script>
+
+                    var type = '@(l.type)';
+                    var title = '@(l.title)';
+                    var dat = '@(l.data)';
+                    var lab = '@(l.labels)';
+                    var df='@(l.data2)';
+
+                    if (type==="donut"|| type==="pie")
+                    {
+                        var res = dat.split(",");
+                        var labels = lab.split(",");
+                        alert(df[7]);
+
+                    }
+                    else
+                    {
+                        var res = dat.split(",");
+                        var labels = lab.split(",");
+                     }
+
+                    var name = c3.generate({
+                        bindto: "#"+title,
+                        data: {
+
+                            columns: [
+
+                                res
+                            ],
+                            type: type,
+                            onclick: function (d, i) { console.log("onclick", d, i); },
+                            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+                        },
+                        axis: {
+                            x: {
+                                type: 'category',
+                                categories: labels
+                            }
+                        }
+                    });
+
+                    </script>
+                    </div>
+                </div>
+          </div>
+
+         <br />
+         }
+     </div>
+
+
+    </div>
+
+

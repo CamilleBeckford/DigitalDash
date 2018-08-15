@@ -1,0 +1,12 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(to bottom, #ffffff, #ebf1ff, #c5e8ff, #8de2ff, #28dcff);
+}
+.body-content{
+     padding-left:15px;
+     padding-right:15px;
+     background-image: linear-gradient(to bottom, #ffffff, #ebf1ff, #c5e8ff, #8de2ff, #28dcff);
+
+ }
+.carousel-caption p{font-size:20px;line-height:1.4}.carousel-inner .item img[src$=".svg"]{s:100%}#qrCode{margin:15px}@media screen and (max-width:767px){.carousel-caption{display:none}}
